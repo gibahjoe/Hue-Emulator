@@ -7,13 +7,14 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 import com.hueemulator.emulator.HttpTester;
 import com.hueemulator.emulator.TestEmulator;
 import com.hueemulator.lighting.utils.TestUtils;
 import com.hueemulator.utils.Utils;
 
-public class TestConfigurationAPI extends TestCase {
+public class TestConfigurationAPI {
     TestEmulator testEmulator;
     HttpTester httpTester;
 
@@ -35,7 +36,7 @@ public class TestConfigurationAPI extends TestCase {
         testEmulator.reloadInitialConfig();
     }
 
-    @Ignore
+    @Test
     public void bad_JSON() throws Exception {
         String jsonToPut = "{badJson here . . \"lights\": [\"1\",\"2\"],\"name\": \"Test Group\"}";
         String response="";

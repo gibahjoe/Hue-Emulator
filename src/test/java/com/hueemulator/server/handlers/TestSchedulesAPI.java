@@ -2,19 +2,16 @@ package com.hueemulator.server.handlers;
 
 import java.io.IOException;
 
-import junit.framework.TestCase;
-
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-
+import static org.junit.Assert.*;
 import com.hueemulator.emulator.HttpTester;
 import com.hueemulator.emulator.TestEmulator;
 import com.hueemulator.lighting.utils.TestUtils;
 import com.hueemulator.model.PHBridgeConfiguration;
 
-@Ignore
-public class TestSchedulesAPI extends TestCase {
+public class TestSchedulesAPI {
 
     TestEmulator testEmulator;
     HttpTester httpTester;

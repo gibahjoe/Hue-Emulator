@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.hueemulator.emulator.Controller;
@@ -24,23 +22,17 @@ import com.sun.net.httpserver.HttpHandler;
 
 final class MyApiHandler implements HttpHandler {
 
-    private PHBridgeConfiguration bridgeConfiguration;
-    private Controller controller;
-    private LightsAPI lightsAPIhandler;
-    private ConfigurationAPI configurationAPIhandler;
-    private GroupsAPI groupsAPIhandler;
-    private SchedulesAPI schedulesAPIhandler;
-    private ScenesAPI    scenesAPIhandler;
+    private final PHBridgeConfiguration bridgeConfiguration;
+    private final Controller controller;
+    private final LightsAPI lightsAPIhandler = new LightsAPI();
+    private final ConfigurationAPI configurationAPIhandler = new ConfigurationAPI();
+    private final GroupsAPI groupsAPIhandler = new GroupsAPI();
+    private final SchedulesAPI schedulesAPIhandler = new SchedulesAPI();
+    private final ScenesAPI    scenesAPIhandler = new ScenesAPI();
 
     public MyApiHandler(PHBridgeConfiguration bridgeConfiguration, Controller controller) {
         this.bridgeConfiguration = bridgeConfiguration;
         this.controller          = controller;
-
-        lightsAPIhandler = new LightsAPI();
-        groupsAPIhandler = new GroupsAPI();
-        schedulesAPIhandler = new SchedulesAPI();
-        scenesAPIhandler    = new ScenesAPI();
-        configurationAPIhandler = new ConfigurationAPI();
     }
 
     public void handle(HttpExchange exchange) throws IOException {
@@ -124,7 +116,7 @@ final class MyApiHandler implements HttpHandler {
         }
     }
 
-    public void handlePut(ObjectMapper mapper, String url, OutputStream responseBody, String jSONString, String[] urlElements) throws JsonParseException, IOException  {
+    public void handlePut(ObjectMapper mapper, String url, OutputStream responseBody, String jSONString, String[] urlElements) throws IOException  {
         int noURLEelements=urlElements.length;
         String lastURLElement = urlElements[noURLEelements-1];
 
@@ -156,7 +148,7 @@ final class MyApiHandler implements HttpHandler {
         } 
     }
 
-    public void handlePost(ObjectMapper mapper, String url, OutputStream responseBody, String jSONString, String[] urlElements) throws JsonParseException, IOException  {
+    public void handlePost(ObjectMapper mapper, String url, OutputStream responseBody, String jSONString, String[] urlElements) throws IOException  {
         int noURLEelements=urlElements.length;
         String lastURLElement = urlElements[noURLEelements-1];
 
@@ -172,7 +164,7 @@ final class MyApiHandler implements HttpHandler {
 
     }
 
-    public void handleGet(ObjectMapper mapper, String url, OutputStream responseBody, String[] urlElements) throws JsonGenerationException, IOException {
+    public void handleGet(ObjectMapper mapper, String url, OutputStream responseBody, String[] urlElements) throws IOException {
 
         int noURLEelements=urlElements.length;
         String lastURLElement = urlElements[noURLEelements-1];
@@ -210,7 +202,7 @@ final class MyApiHandler implements HttpHandler {
         }
     }
 
-    public void handleDelete(ObjectMapper mapper, OutputStream responseBody, String[] urlElements) throws JsonParseException, IOException  {
+    public void handleDelete(ObjectMapper mapper, OutputStream responseBody, String[] urlElements) throws IOException  {
         int noURLEelements=urlElements.length;
         String lastURLElement = urlElements[noURLEelements-1];
 

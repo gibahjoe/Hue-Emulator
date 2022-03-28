@@ -2,32 +2,23 @@ package com.hueemulator.gui;
 
 
 import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.*;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-import com.hueemulator.emulator.Constants;
-import com.hueemulator.emulator.Controller;
-import com.hueemulator.emulator.Model;
-import com.hueemulator.model.PHConfig;
-import com.hueemulator.model.PHLight;
-import com.hueemulator.model.PHLightState;
+import com.hueemulator.emulator.*;
+import com.hueemulator.model.*;
 
 
-public final class GraphicsPanel extends JPanel implements MouseListener {
+public final class GraphicsPanel
+        extends JPanel
+        implements MouseListener
+{
     private Model model;
     private BufferedImage bulbImage;
     private BufferedImage lampTop;   // For when the bulb is off
@@ -35,18 +26,18 @@ public final class GraphicsPanel extends JPanel implements MouseListener {
     private BufferedImage bridgeImage;
     
     // Used for slightly dimming bulbs which are off.
-    private AlphaComposite dimAlphaComposite;
-    private AlphaComposite helpAlphaComposite;
-    private AlphaComposite normalAlphaComposite;
+    private final AlphaComposite dimAlphaComposite;
+    private final AlphaComposite helpAlphaComposite;
+    private final AlphaComposite normalAlphaComposite;
 
     private static final int VIEW_TYPE_LARGE=0;
     private static final int VIEW_TYPE_SMALL=1;   // New window with small bulbs
     private static final int VIEW_TYPE_PANEL=2;   // Panel on main window.
     private static final int NO_BULBS_PER_ROW=5;
     private static final int NO_BULBS_PER_ROW_SMALL=12;
-    private int viewType;
-    private int lightXOffset;
-    private int lightsGap;
+    private final int viewType;
+    private final int lightXOffset;
+    private final int lightsGap;
     private int yPosition;
     private boolean drawBulbInfo=false;
     private boolean drawBridgeInfo=false;
@@ -102,9 +93,7 @@ public final class GraphicsPanel extends JPanel implements MouseListener {
    
     public void paintComponent( Graphics g ) {
         super.paintComponent(g);
-        
 
-        
         Graphics2D g2 = (Graphics2D)g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
        
@@ -301,53 +290,48 @@ public final class GraphicsPanel extends JPanel implements MouseListener {
 
  @Override
  public void mousePressed(MouseEvent e) {
-     int x= e.getX();
-     int y= e.getY();
+    int x= e.getX();
+    int y= e.getY();
 
+    boolean linkButtonPressed=false;  // i.e. The use has clicked near the bridge image.
+    if (viewType == VIEW_TYPE_LARGE) {
+        drawBulbInfo   = false;
+        drawBridgeInfo = false;
 
-        boolean linkButtonPressed=false;  // i.e. The use has clicked near the bridge image.
-        if (viewType == VIEW_TYPE_LARGE) {
+        int bulbClicked = -1;
 
-                
-            drawBulbInfo   = false;
-            drawBridgeInfo = false;
-            
-            int bulbClicked = -1;
-            
-            if (x > lightXOffset) {
-                bulbClicked =  ((x - lightXOffset) / lightsGap) +  (NO_BULBS_PER_ROW * (y/300));
-                drawBulbInfo=true;
-                mouseOverBulb = bulbClicked;
-            }
-            else {
-                drawBridgeInfo=true; 
-                linkButtonPressed=true;
-            }
-               
+        if (x > lightXOffset) {
+            bulbClicked =  ((x - lightXOffset) / lightsGap) +  (NO_BULBS_PER_ROW * (y/300));
+            drawBulbInfo=true;
+            mouseOverBulb = bulbClicked;
         }
-        else if (x < 90) {
+        else {
+            drawBridgeInfo=true;
             linkButtonPressed=true;
         }
-        
-        if (linkButtonPressed) {
-            controller.setHasBridgeBeenPushLinked(true);
-            controller.addTextToConsole("Link button has been pressed", Color.GREEN, true);
-            
-            if (linkExpireTimer != null) {
-            	linkExpireTimer.cancel();
-            }
-            linkExpireTimer = new Timer();
-            linkExpireTimer.schedule(new TimerTask() {
-            	@Override
-            	public void run() {
-            		controller.setHasBridgeBeenPushLinked(false);
-                    controller.addTextToConsole("Linking has expired", Color.RED, true);
-            	}
-            }, 30000);
-            
-         }
+    } else if (x < 90) {
+        linkButtonPressed=true;
+    }
 
-        this.repaint(); 
+    if (linkButtonPressed) {
+        controller.setHasBridgeBeenPushLinked(true);
+        controller.addTextToConsole("Link button has been pressed", Color.GREEN, true);
+
+        if (linkExpireTimer != null) {
+            linkExpireTimer.cancel();
+        }
+        linkExpireTimer = new Timer();
+        linkExpireTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                controller.setHasBridgeBeenPushLinked(false);
+                controller.addTextToConsole("Linking has expired", Color.RED, true);
+            }
+        }, 30000);
+
+     }
+
+    this.repaint();
  }
 
  @Override

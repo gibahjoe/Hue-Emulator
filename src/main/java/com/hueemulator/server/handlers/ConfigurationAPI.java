@@ -48,7 +48,7 @@ public final class ConfigurationAPI {
     //  http://www.developers.meethue.com/documentation/configuration-api#71_create_user   7.1  Create User
     // *=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=    
     
-    public void createUser_7_1(ObjectMapper mapper, String jSONString, PHBridgeConfiguration bridgeConfiguration, OutputStream responseBody, Controller controller)  throws JsonParseException, IOException {
+    public void createUser_7_1(ObjectMapper mapper, String jSONString, PHBridgeConfiguration bridgeConfiguration, OutputStream responseBody, Controller controller)  throws IOException {
 
             PHWhitelistEntry  whitelistEntry = new PHWhitelistEntry();
             
@@ -85,8 +85,7 @@ public final class ConfigurationAPI {
                           errorCode="101";
                           resourceUrl="";   // Copying what the bridge returns here.
                           users.add(userName);
-                      }
-                      else if (controller.isHasBridgeBeenPushLinked()){
+                      } else if (controller.isHasBridgeBeenPushLinked()){
                           isSuccess=true;
                       }
                      

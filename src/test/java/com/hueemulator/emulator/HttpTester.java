@@ -22,9 +22,7 @@ public class HttpTester {
    con = (HttpURLConnection) obj.openConnection();
    con.setRequestMethod("GET");
    con.setRequestProperty("Cache-Control", "no-cache");
-  } catch (MalformedURLException e) {
-   e.printStackTrace();
-  } 
+  }
    catch (IOException e) {
    e.printStackTrace();
   }
@@ -59,9 +57,7 @@ public class HttpTester {
    obj = new URL(url);
    con = (HttpURLConnection) obj.openConnection();
    con.setRequestMethod(requestMethod);
-  } catch (MalformedURLException e) {
-   e.printStackTrace();
-  } 
+  }
    catch (IOException e) {
    e.printStackTrace();
   }

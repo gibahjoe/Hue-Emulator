@@ -52,7 +52,7 @@ public final class Controller {
     
     private MutableAttributeSet sas;
     private StyleContext context;
-    public boolean hasBridgeBeenPushLinked=false;
+    private boolean hasBridgeBeenPushLinked;
     
     public Controller(Model model, View view, String fileName){
         this.model = model;

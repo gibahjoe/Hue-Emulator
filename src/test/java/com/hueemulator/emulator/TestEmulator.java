@@ -2,12 +2,7 @@ package com.hueemulator.emulator;
 
 import java.io.IOException;
 
-import com.hueemulator.emulator.Controller;
-import com.hueemulator.emulator.Emulator;
-import com.hueemulator.emulator.Model;
 import com.hueemulator.server.Server;
-
-
 
 public class TestEmulator {
     private static TestEmulator instance = null;
