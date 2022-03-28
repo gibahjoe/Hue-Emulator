@@ -10,7 +10,7 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-class MyRootHandler implements HttpHandler {
+final class MyRootHandler implements HttpHandler {
 
     private Controller controller;
     private ConfigurationAPI configurationAPIhandler;

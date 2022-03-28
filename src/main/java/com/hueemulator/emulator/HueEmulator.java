@@ -2,7 +2,7 @@ package com.hueemulator.emulator;
 
 import com.hueemulator.gui.View;
 
-public class HueEmulator{
+public final class HueEmulator{
    
     public static void main(String args[]) {
         new HueEmulator(args.length > 0 ? args[0] : null);

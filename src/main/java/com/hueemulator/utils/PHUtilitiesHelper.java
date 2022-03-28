@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class PHUtilitiesHelper {
+public final class PHUtilitiesHelper {
 
     private static final int CPT_RED = 0;
     private static final int CPT_GREEN = 1;

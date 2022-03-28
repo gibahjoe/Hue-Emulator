@@ -15,7 +15,7 @@ import java.util.Locale;
  * no contributions from red, green, or blue), and opaque-white would be
  * 0xFFFFFFFF
  */
-public class HueColor {
+public final class HueColor {
     public static final int BLACK       = 0xFF000000;
     public static final int DKGRAY      = 0xFF444444;
     public static final int GRAY        = 0xFF888888;

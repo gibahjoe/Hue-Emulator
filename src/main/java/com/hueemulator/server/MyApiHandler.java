@@ -22,7 +22,7 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
-class MyApiHandler implements HttpHandler {
+final class MyApiHandler implements HttpHandler {
 
     private PHBridgeConfiguration bridgeConfiguration;
     private Controller controller;

@@ -20,7 +20,7 @@ import com.hueemulator.model.PHLight;
 import com.hueemulator.model.PHLightState;
 import com.hueemulator.model.PHScenesEntry;
 
-public class ScenesAPI {
+public final class ScenesAPI {
     
     // In the bridge, the light states for each scene are stored in the bulbs (not in the Bridge JSON/COnfig). Hence this map is for storing the LightStates for each scene.
     public static Map<String, List<PHLight>> emulatorScenes = new HashMap<String, List<PHLight>>();      

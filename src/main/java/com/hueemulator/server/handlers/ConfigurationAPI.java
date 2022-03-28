@@ -19,7 +19,7 @@ import com.hueemulator.model.PHConfig;
 import com.hueemulator.model.PHWhitelistEntry;
 import com.hueemulator.utils.Utils;
 
-public class ConfigurationAPI {
+public final class ConfigurationAPI {
 
     // Used for Pushlinking.  Stores all usernames (that are being created).
     // For pushlinking you have to click anywhere on the bridge panel

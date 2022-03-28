@@ -10,7 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 // @JsonFilter("stateFilter")
-public class PHLightState
+public final class PHLightState
 {
     
  @JsonProperty("on")

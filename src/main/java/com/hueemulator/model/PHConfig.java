@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-public class PHConfig
+public final class PHConfig
 {
  @JsonProperty("portalservices")
  private Boolean  portalservices;

@@ -22,7 +22,7 @@ import com.hueemulator.model.PHCommand;
 import com.hueemulator.model.PHSchedulesEntry;
 import com.hueemulator.utils.Utils;
 
-public class SchedulesAPI {
+public final class SchedulesAPI {
 
 
     // *=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=

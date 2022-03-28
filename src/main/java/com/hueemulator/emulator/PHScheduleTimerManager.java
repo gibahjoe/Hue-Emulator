@@ -3,7 +3,7 @@ package com.hueemulator.emulator;
 import java.util.HashMap;
 
 
-public class PHScheduleTimerManager {
+public final class PHScheduleTimerManager {
 
     private static PHScheduleTimerManager scheduleManager;
     /**

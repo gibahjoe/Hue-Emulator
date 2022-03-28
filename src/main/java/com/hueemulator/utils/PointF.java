@@ -4,7 +4,7 @@ package com.hueemulator.utils;
 /**
  * PointF holds two float coordinates
  */
-public class PointF {
+public final class PointF {
     public float x;
     public float y;
     

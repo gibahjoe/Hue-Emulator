@@ -19,7 +19,7 @@ import com.hueemulator.server.UPNPServer;
 // Taken from here: http://www.java2s.com/Code/Java/JDK-6/LightweightHTTPServer.htm
 // Here is another one:  http://www.sourcestream.com/programming-stuff/java-http-server
 
-public class Emulator {
+public final class Emulator {
 
     private Server server;
     private UPNPServer upnpServer;

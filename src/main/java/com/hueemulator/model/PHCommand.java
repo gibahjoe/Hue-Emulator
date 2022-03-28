@@ -2,7 +2,7 @@ package com.hueemulator.model;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-public class PHCommand
+public final class PHCommand
 {
  @JsonProperty("body")
  private PHBody body;

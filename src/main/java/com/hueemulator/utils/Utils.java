@@ -15,7 +15,8 @@ import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Utils {
+public final class Utils {
+
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
     private static final String USER_AGENT = "Mozilla/5.0";
     

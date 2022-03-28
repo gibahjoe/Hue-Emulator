@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-public class PropertiesFrame extends JFrame{
+public final class PropertiesFrame extends JFrame{
    private JCheckBox includeTime;
    private JCheckBox showJSONResponses;
  

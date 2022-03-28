@@ -24,7 +24,7 @@ import com.hueemulator.utils.PHUtilitiesHelper;
 import com.hueemulator.utils.PointF;
 import com.hueemulator.utils.Utils;
 
-public class LightsAPI {
+public final class LightsAPI {
 
     DecimalFormat fourDP = new DecimalFormat("#.####");
 

@@ -4,7 +4,7 @@ import java.util.Timer;
 
 import org.json.JSONObject;
 
-public class PHScheduleTimer extends Timer {
+public final class PHScheduleTimer extends Timer {
     
     private String scheduleIdentifier;
     private JSONObject commandJSON;

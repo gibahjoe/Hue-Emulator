@@ -6,7 +6,7 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PHGroupsEntry
+public final class PHGroupsEntry
 {
     @JsonProperty("name")
     private String  name;

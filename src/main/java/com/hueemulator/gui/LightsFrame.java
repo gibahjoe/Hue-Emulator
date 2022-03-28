@@ -9,7 +9,7 @@ import com.hueemulator.emulator.Constants;
 import com.hueemulator.emulator.Controller;
 import com.hueemulator.emulator.Model;
 
-public class LightsFrame extends JFrame {
+public final class LightsFrame extends JFrame {
     
     // Used for slightly dimming bulbs which are off.
     private Model model;

@@ -38,7 +38,7 @@ import com.hueemulator.model.PHLightState;
 import com.hueemulator.utils.OpenFileFilter;
 import com.hueemulator.utils.Utils;
 
-public class Controller {
+public final class Controller {
  
     // Start up the Emulator
     private Emulator emulator;

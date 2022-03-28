@@ -3,8 +3,7 @@ package com.hueemulator.gui;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 
-
-public class Help extends JFrame{
+public final class Help extends JFrame {
     private JEditorPane aboutPane;
     
     public Help() {

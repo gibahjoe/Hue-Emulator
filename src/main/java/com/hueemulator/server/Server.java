@@ -9,7 +9,7 @@ import com.hueemulator.model.PHBridgeConfiguration;
 import com.sun.net.httpserver.HttpServer;
 
 
-public class Server {
+public final class Server {
 
     private HttpServer httpServer;
 

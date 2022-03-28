@@ -9,7 +9,7 @@ import java.net.SocketException;
 
 import com.hueemulator.emulator.Controller;
 
-public class UPNPServer extends Thread {
+public final class UPNPServer extends Thread {
     
     private static final int UPNP_PORT = 1901;
     public DatagramSocket socket;

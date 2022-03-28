@@ -12,7 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JToolBar;
 import javax.swing.text.html.HTMLDocument;
 
-public class View {
+public final class View {
 
     private JEditorPane console;  // Console where all text is displayed
     private HueMenuBar menuBar;   

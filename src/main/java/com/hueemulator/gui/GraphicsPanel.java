@@ -27,7 +27,7 @@ import com.hueemulator.model.PHLight;
 import com.hueemulator.model.PHLightState;
 
 
-public class GraphicsPanel extends JPanel implements MouseListener {
+public final class GraphicsPanel extends JPanel implements MouseListener {
     private Model model;
     private BufferedImage bulbImage;
     private BufferedImage lampTop;   // For when the bulb is off

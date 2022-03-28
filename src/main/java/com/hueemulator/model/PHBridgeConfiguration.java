@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-public class PHBridgeConfiguration
+public final class PHBridgeConfiguration
 {
  @JsonProperty("lights")
  private Map<String, PHLight> lights;

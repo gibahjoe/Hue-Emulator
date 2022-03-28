@@ -1,6 +1,6 @@
 package com.hueemulator.emulator;
 
-public class Constants {
+public final class Constants {
     
    public static String EMULATOR_VERSION = "v0.6";  
     

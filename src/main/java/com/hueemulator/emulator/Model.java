@@ -3,7 +3,7 @@ package com.hueemulator.emulator;
 import com.hueemulator.model.PHBridgeConfiguration;
 
 
-public class Model {
+public final class Model {
  
  private PHBridgeConfiguration bridgeConfiguration; 
  private boolean showConsoleTime;

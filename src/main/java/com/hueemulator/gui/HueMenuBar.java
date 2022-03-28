@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 import com.hueemulator.emulator.Constants;
 import com.hueemulator.emulator.Controller;
 
-public class HueMenuBar extends JMenuBar {
+public final class HueMenuBar extends JMenuBar {
     private JTextField port;
     private JMenuBar menuBar;
     private JMenu fileMenu, viewsMenu, debugMenu, helpMenu;

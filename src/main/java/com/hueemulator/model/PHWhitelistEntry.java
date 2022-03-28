@@ -2,7 +2,7 @@ package com.hueemulator.model;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-public class PHWhitelistEntry
+public final class PHWhitelistEntry
 {
  @JsonProperty("last use date")
  private String lastUseDate;

@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import com.hueemulator.emulator.Constants;
 
 
-public class About extends JFrame{
+public final class About extends JFrame{
     private JEditorPane aboutPane;
   
     

@@ -21,7 +21,7 @@ import com.hueemulator.model.PHLight;
 import com.hueemulator.model.PHLightState;
 import com.hueemulator.utils.Utils;
 
-public class GroupsAPI {
+public final class GroupsAPI {
 
     
      // *=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=

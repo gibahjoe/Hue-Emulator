@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-public class PHBody
+public final class PHBody
 {
     @JsonProperty("scene")
     private Boolean scene;

@@ -4,7 +4,7 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PHSchedulesEntry
+public final class PHSchedulesEntry
 {
  @JsonProperty("time")
  private String time;

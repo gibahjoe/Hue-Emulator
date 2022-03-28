@@ -11,7 +11,7 @@ package com.hueemulator.utils;
 import java.io.File;
 import javax.swing.filechooser.*;
 
-public class OpenFileFilter extends FileFilter {
+public final class OpenFileFilter extends FileFilter {
 
     String description = "";
     String fileExt = "";

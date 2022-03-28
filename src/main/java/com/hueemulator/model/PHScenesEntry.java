@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-public class PHScenesEntry
+public final class PHScenesEntry
 {
     
  @JsonProperty("name")
