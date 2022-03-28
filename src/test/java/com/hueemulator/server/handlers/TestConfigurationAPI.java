@@ -5,6 +5,7 @@ import java.io.IOException;
 import junit.framework.TestCase;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.hueemulator.emulator.HttpTester;
@@ -33,8 +34,9 @@ public class TestConfigurationAPI extends TestCase {
         // Tests should be stateless.  Reload initial config before running each test.
         testEmulator.reloadInitialConfig();
     }
-    
-    public void testBadJSON() throws Exception {
+
+    @Ignore
+    public void bad_JSON() throws Exception {
         String jsonToPut = "{badJson here . . \"lights\": [\"1\",\"2\"],\"name\": \"Test Group\"}";
         String response="";
         String expected="[{\"error\":{\"address\":\"/api/newdeveloper/groups\",\"description\":\"body contains invalid json\",\"type\":\"2\"}}]";

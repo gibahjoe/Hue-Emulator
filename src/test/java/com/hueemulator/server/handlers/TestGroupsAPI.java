@@ -5,6 +5,7 @@ import java.io.IOException;
 import junit.framework.TestCase;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.hueemulator.emulator.HttpTester;
@@ -12,7 +13,7 @@ import com.hueemulator.emulator.TestEmulator;
 import com.hueemulator.lighting.utils.TestUtils;
 import com.hueemulator.model.PHBridgeConfiguration;
 
-
+@Ignore
 public class TestGroupsAPI extends TestCase {
 
     TestEmulator testEmulator;
@@ -37,7 +38,7 @@ public class TestGroupsAPI extends TestCase {
     }
     
     @Test
-    public void testGroupsAPI_2_1() throws Exception{
+    public void groups_API_2_1() throws Exception{
         // 2.1 Get all Groups
         System.out.println("Testing Groups API: 2.1. Get all groups  (http://developers.meethue.com/2_groupsapi.html)" );
         String url = baseURL + "newdeveloper/groups";
@@ -46,11 +47,10 @@ public class TestGroupsAPI extends TestCase {
 
         response = httpTester.doGet(url);
         assertTrue(TestUtils.jsonsEqual(response, expected));
-
     }    
 
     @Test
-    public void testGroupsAPI_2_2() throws Exception{
+    public void groupsAPI_2_2() throws Exception{
         // 2.2 Create Group
         System.out.println("Testing Groups API: 2.2. Create group  (http://developers.meethue.com/2_groupsapi.html)" );
         String url = baseURL + "newdeveloper/groups";
@@ -60,12 +60,11 @@ public class TestGroupsAPI extends TestCase {
         String expected="[{\"success\":{\"id\":\"/groups/2\"}}]";
         response = httpTester.doPutOrPost(url, jsonToPut, "POST");
         assertTrue(TestUtils.jsonsArrayEqual(response, expected));
-
     }  
 
 
     @Test
-    public void testGroupsAPI_2_3() throws Exception {
+    public void groupsAPI_2_3() throws Exception {
         // 2.3 Get group attributes
         System.out.println("Testing Groups API: 2.3. Get group attributes   (http://developers.meethue.com/2_groupsapi.html)" );
         String url = baseURL + "newdeveloper/groups/1";
@@ -77,7 +76,7 @@ public class TestGroupsAPI extends TestCase {
     }
 
     @Test
-    public void testGroupsAPI_2_4() throws Exception {
+    public void groupsAPI_2_4() throws Exception {
         // 2.4  Set group attributes
         System.out.println("Testing Groups API: 2.4. Set group attributes   (http://developers.meethue.com/2_groupsapi.html)" );
         String url = baseURL + "newdeveloper/groups/1";
@@ -90,7 +89,7 @@ public class TestGroupsAPI extends TestCase {
     }
     
     @Test
-    public void testGroupsAPI_2_5() throws Exception {
+    public void groupsAPI_2_5() throws Exception {
         // 2.5  Set group state
         System.out.println("Testing Groups API: 2.5. Set group state   (http://developers.meethue.com/2_groupsapi.html)" );
         String url = baseURL + "newdeveloper/groups/0/action";
@@ -103,7 +102,7 @@ public class TestGroupsAPI extends TestCase {
     }
     
     @Test
-    public void testGroupsAPI_2_6() throws Exception {
+    public void groupsAPI_2_6() throws Exception {
         // 2.6  Delete Group
         System.out.println("Testing Groups API: 2.6. Delete group   (http://developers.meethue.com/2_groupsapi.html)" );
         String url = baseURL + "newdeveloper/groups/1";

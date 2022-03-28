@@ -10,7 +10,6 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
@@ -82,14 +81,11 @@ public class GraphicsPanel extends JPanel implements MouseListener {
 
         setPreferredSize(new Dimension(1000,100));
         try {      
-         bridgeImage = ImageIO.read(getClass().getResource(path + "bridge.png"));
-         bulbImage   = ImageIO.read(getClass().getResource(path + "lamp.png"));
-         lampTop     = ImageIO.read(getClass().getResource(path + "lampTop.png"));
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+             bridgeImage = ImageIO.read(getClass().getResource(path + "bridge.png"));
+             bulbImage   = ImageIO.read(getClass().getResource(path + "lamp.png"));
+             lampTop     = ImageIO.read(getClass().getResource(path + "lampTop.png"));
         } catch (IOException e) {
-            e.printStackTrace();
+             e.printStackTrace();
         }
         
         int type = AlphaComposite.SRC_OVER;
