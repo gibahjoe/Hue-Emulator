@@ -92,28 +92,31 @@ public class TestLightsAPI {
     @Test
     public void lightsAPI_1_6() throws Exception {
         // 1.6 Set Light State
-        System.out.println("Testing Lights API: 1.6. Set light state   (http://developers.meethue.com/1_lightsapi.html)" );
+        System.out.println("Testing Lights API: 1.6. Set light state   (https://developers.meethue.com/develop/hue-api/lights-api/)" );
         String url = baseURL + "newdeveloper/lights/2/state";
 
-        String jsonToPut="{\"hue\": 50000 }";
+        String jsonToPut="{\"on\":true,\"hue\": 50000}";
 
-        String expected="[{\"success\":{\"/lights/2/state/hue\":50000}}]";  // {"success":{"/lights/1/state/hue":50000}}
+        String expected="[{\"success\":{\"/lights/2/state/hue\":50000}},{\"success\":{\"/lights/2/state/on\":true}}]";  // {"success":{"/lights/1/state/hue":50000}}
 
         String response= httpTester.doPutOrPost(url, jsonToPut, "PUT");
+
         assertTrue(TestUtils.jsonsArrayEqual(expected, response));
 
-        jsonToPut =  "{\"hue\": 20000,\"on\": false,\"bri\": 220}";
-        expected = "[{\"success\":{\"/lights/2/state/bri\":220}},{\"success\":{\"/lights/2/state/hue\":20000}},{\"success\":{\"/lights/2/state/on\":false}}]";
+        jsonToPut =  "{\"on\": true,\"hue\": 20000,\"bri\": 220}";
+        expected = "[{\"success\":{\"/lights/2/state/bri\":220}},{\"success\":{\"/lights/2/state/hue\":20000}},{\"success\":{\"/lights/2/state/on\":true}}]";
         response= httpTester.doPutOrPost(url, jsonToPut, "PUT");
 
         assertTrue(TestUtils.jsonsArrayEqual(expected, response));
 
         // Try to Modify the Hue of a light turned off.
-        jsonToPut = "{\"hue\": 4444}";
+        jsonToPut = "{\"on\": false,\"hue\": 4444}";
 
         response= httpTester.doPutOrPost(url, jsonToPut, "PUT");
-        expected = "[{\"error\":{\"address\":\"/lights/2/state/hue\",\"description\":\"parameter, hue, is not modifiable. Device is set to off.\",\"type\":201}}]";
+        expected = "[{\"error\":{\"address\":\"/lights/2/state/hue\",\"description\":\"parameter, hue, is not modifiable. Device is set to off.\",\"type\":201}},{\"success\":{\"/lights/2/state/on\":false}}]";
 
+        System.out.println("===> eje "+expected);
+        System.out.println("===> response "+response);
         assertTrue(TestUtils.jsonsArrayEqual(expected, response));
 
         // Turn the Light Back on.
